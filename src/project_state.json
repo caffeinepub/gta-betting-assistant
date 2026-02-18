@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "GTA Online horse betting assistant with adaptive machine learning prediction engine",
+  "architectural_notes": [
+    "Four-signal prediction model: Market Odds, Historical Performance, Recent Form (5 races), Consistency/Variance",
+    "Dynamic feature weight adjustment based on prediction accuracy feedback loop",
+    "Model calibration tracking comparing predicted vs actual win rates across races",
+    "Bet sizing algorithm considers edge strength, model confidence, contender variance, and recent performance",
+    "Local-first data storage architecture with no cloud dependency",
+    "Recency weighting system prioritizes recent races over historical data",
+    "Contender-level statistics maintained across all races with consistency scoring",
+    "Edge calculation: predicted probability minus implied odds probability",
+    "Model confidence derived from recent prediction accuracy (10-20 race window)",
+    "ROI tracking distinguishes between recommended bets and user-followed bets"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-dashboard-page-that-displays-primary-stats-in-a-clean-card-layout-total-races-logged-total-bets-placed-total-profit-loss-overall-roi-overall-prediction-accuracy-current-session-profit-loss-and-model-calibration-score-stats-must-be-immediately-visible-and-readable-within-2-seconds",
+      "title": "Create a Dashboard page that displays primary stats in a clean card layout: Total Races Logged, Total Bets Placed, Total Profit/Loss, Overall ROI, Overall Prediction Accuracy, Current Session Profit/Loss, and Model Calibration Score. Stats must be immediately visible and readable within 2 seconds.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-model-health-indicator-on-dashboard-that-computes-and-displays-confidence-level-high-medium-low-based-on-recent-prediction-accuracy-and-calibration-quality-over-the-last-10-20-races-when-confidence-drops-the-system-should-automatically-recommend-smaller-bet-sizes",
+      "title": "Implement Model Health Indicator on Dashboard that computes and displays confidence level (High/Medium/Low) based on recent prediction accuracy and calibration quality over the last 10-20 races. When confidence drops, the system should automatically recommend smaller bet sizes.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-currently-selected-strategy-mode-on-dashboard-with-mode-name-safe-balanced-value-aggressive-and-a-short-description-of-what-the-mode-is-optimizing-for-e-g-optimizing-for-highest-win-consistency-or-optimizing-for-maximum-expected-profit",
+      "title": "Display currently selected strategy mode on Dashboard with mode name (Safe/Balanced/Value/Aggressive) and a short description of what the mode is optimizing for (e.g., 'Optimizing for highest win consistency' or 'Optimizing for maximum expected profit').",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-last-prediction-result-summary-to-dashboard-showing-recommended-contender-assigned-probability-outcome-won-placed-showed-failed-recommended-bet-size-and-profitability-result",
+      "title": "Add Last Prediction Result Summary to Dashboard showing: recommended contender, assigned probability, outcome (won/placed/showed/failed), recommended bet size, and profitability result.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-quick-action-buttons-on-dashboard-new-bet-primary-call-to-action-visually-prominent-log-race-result-history-reset-data-and-settings-new-bet-button-must-stand-out-the-most",
+      "title": "Create Quick Action Buttons on Dashboard: New Bet (primary call-to-action, visually prominent), Log Race Result, History, Reset Data, and Settings. New Bet button must stand out the most.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-new-bet-page-with-exactly-6-contender-input-rows-labeled-1-through-6-each-row-must-have-a-numeric-input-box-accepting-values-1-30-numerator-with-static-1-text-displayed-immediately-to-the-right-forming-visual-odds-like-5-1-inputs-must-be-fast-and-simple-with-no-extra-menus-or-dropdowns",
+      "title": "Create New Bet page with exactly 6 contender input rows labeled #1 through #6. Each row must have a numeric input box accepting values 1-30 (numerator) with static '/1' text displayed immediately to the right, forming visual odds like '[ 5 ] /1'. Inputs must be fast and simple with no extra menus or dropdowns.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-real-time-implied-win-probability-calculation-and-display-for-each-contender-on-new-bet-page-as-the-user-types-each-odds-numerator-instantly-compute-and-show-implied-win-percentage-e-g-5-1-displays-implied-win-chance-16-67-updates-must-happen-in-real-time-while-typing",
+      "title": "Implement real-time implied win probability calculation and display for each contender on New Bet page. As the user types each odds numerator, instantly compute and show implied win percentage (e.g., '5/1' displays 'Implied Win Chance: 16.67%'). Updates must happen in real time while typing.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-live-odds-table-summary-panel-below-the-6-contender-rows-on-new-bet-page-displaying-total-implied-probabilities-across-all-contenders-overround-percentage-if-total-exceeds-100-and-warning-if-total-implied-probability-is-abnormally-high-or-low",
+      "title": "Add Live Odds Table Summary panel below the 6 contender rows on New Bet page displaying: total implied probabilities across all contenders, overround percentage (if total exceeds 100%), and warning if total implied probability is abnormally high or low.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-strategy-mode-selector-on-new-bet-page-with-4-modes-safe-mode-prioritizes-highest-win-likelihood-balanced-mode-balances-probability-and-value-value-mode-prioritizes-expected-value-and-underdog-opportunities-and-aggressive-mode-maximizes-payout-potential-selector-should-be-a-clear-dropdown-or-segmented-button-control",
+      "title": "Implement Strategy Mode Selector on New Bet page with 4 modes: Safe Mode (prioritizes highest win likelihood), Balanced Mode (balances probability and value), Value Mode (prioritizes expected value and underdog opportunities), and Aggressive Mode (maximizes payout potential). Selector should be a clear dropdown or segmented button control.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-prediction-results-on-new-bet-page-showing-recommended-contender-e-g-3-predicted-win-probability-e-g-28-4-implied-odds-probability-e-g-16-7-value-edge-e-g-11-7-confidence-level-low-medium-high-based-on-contender-consistency-and-model-calibration-and-recommended-bet-size-in-1k-increments-e-g-7-000",
+      "title": "Display prediction results on New Bet page showing: Recommended Contender (e.g., '#3'), Predicted Win Probability (e.g., '28.4%'), Implied Odds Probability (e.g., '16.7%'), Value Edge (e.g., '+11.7%'), Confidence Level (Low/Medium/High based on contender consistency and model calibration), and Recommended Bet Size in $1k increments (e.g., '$7,000').",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-reasoning-panel-to-prediction-output-showing-breakdown-of-the-4-model-signals-with-their-scores-and-current-trust-weights-market-odds-signal-score-weight-historical-performance-signal-score-weight-recent-form-signal-score-weight-and-consistency-variance-signal-score-weight-display-format-example-market-odds-0-21-with-market-odds-weight-0-30",
+      "title": "Add 'Reasoning' panel to prediction output showing breakdown of the 4 model signals with their scores and current trust weights: Market Odds Signal (score + weight), Historical Performance Signal (score + weight), Recent Form Signal (score + weight), and Consistency/Variance Signal (score + weight). Display format example: 'Market Odds: +0.21' with 'Market Odds Weight: 0.30'.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-do-not-bet-safeguard-logic-that-automatically-recommends-skipping-a-race-when-no-contender-has-a-strong-enough-edge-over-implied-probability-display-message-recommendation-skip-this-race-with-explanation-no-contender-shows-a-strong-positive-expected-value",
+      "title": "Implement 'Do Not Bet' safeguard logic that automatically recommends skipping a race when no contender has a strong enough edge over implied probability. Display message: 'Recommendation: Skip This Race' with explanation 'No contender shows a strong positive expected value.'",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-race-result-logging-page-with-quick-input-controls-dropdowns-or-tap-buttons-not-typing-for-winner-1-6-second-place-1-6-and-third-place-1-6-store-race-data-including-odds-entered-timestamp-finishing-order-model-prediction-recommended-bet-size-and-optional-toggle-for-whether-user-followed-recommendation",
+      "title": "Create Race Result Logging page with quick input controls (dropdowns or tap buttons, not typing) for Winner (#1-#6), Second Place (#1-#6), and Third Place (#1-#6). Store race data including: odds entered, timestamp, finishing order, model prediction, recommended bet size, and optional toggle for whether user followed recommendation.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-history-page-displaying-scrollable-list-of-logged-races-each-entry-shows-timestamp-odds-for-all-6-contenders-top-3-finishers-model-recommended-contender-recommended-bet-size-correctness-indicator-and-profit-loss-result-include-optional-json-or-csv-export-functionality",
+      "title": "Create History page displaying scrollable list of logged races. Each entry shows: timestamp, odds for all 6 contenders, top 3 finishers, model recommended contender, recommended bet size, correctness indicator, and profit/loss result. Include optional JSON or CSV export functionality.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-contender-statistics-page-showing-computed-stats-for-each-contender-1-6-win-place-show-rate-last-5-finishes-streak-status-average-implied-odds-optional-overperformance-vs-odds-metric-and-consistency-score-display-as-individual-contender-profiles",
+      "title": "Create Contender Statistics page showing computed stats for each contender #1-#6: win/place/show rate, last 5 finishes, streak status, average implied odds, optional overperformance vs odds metric, and consistency score. Display as individual contender profiles.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-settings-page-with-controls-for-reset-all-data-change-recent-form-window-size-default-5-races-adjust-recency-weighting-strength-toggle-do-not-bet-mode-on-off-toggle-auto-bet-sizing-on-off-set-default-strategy-mode-and-enable-session-only-mode-vs-lifetime-mode",
+      "title": "Create Settings page with controls for: reset all data, change recent-form window size (default 5 races), adjust recency weighting strength, toggle 'Do Not Bet' mode on/off, toggle auto bet sizing on/off, set default strategy mode, and enable session-only mode vs lifetime mode.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-contextual-warnings-and-guidance-messages-throughout-the-app-model-confidence-low-bet-size-reduced-high-variance-contender-risk-increased-no-value-detected-skipping-recommended-messages-should-appear-when-conditions-are-met",
+      "title": "Display contextual warnings and guidance messages throughout the app: 'Model confidence low: bet size reduced.', 'High variance contender: risk increased.', 'No value detected: skipping recommended.' Messages should appear when conditions are met.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-session-summary-display-that-appears-after-every-10-or-20-races-showing-profit-loss-best-performing-contender-worst-performing-contender-most-accurate-strategy-mode-most-profitable-strategy-mode-and-current-model-trust-weights",
+      "title": "Implement session summary display that appears after every 10 or 20 races showing: profit/loss, best-performing contender, worst-performing contender, most accurate strategy mode, most profitable strategy mode, and current model trust weights.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-the-app-with-a-clean-fast-minimalist-visual-aesthetic-optimized-for-professional-betting-analysis-use-a-dark-or-neutral-color-scheme-with-high-contrast-typography-for-instant-readability-avoid-blue-and-purple-unless-they-serve-a-functional-purpose-every-screen-must-be-glanceable-with-the-most-important-numbers-immediately-visible",
+      "title": "Design the app with a clean, fast, minimalist visual aesthetic optimized for professional betting analysis. Use a dark or neutral color scheme with high-contrast typography for instant readability. Avoid blue and purple unless they serve a functional purpose. Every screen must be glanceable with the most important numbers immediately visible.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Dashboard with stats, model health indicator, strategy mode display, last prediction result, and quick action buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "New Bet page with 6-contender odds entry, real-time implied probability calculation, and live odds summary",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Four strategy modes (Safe, Balanced, Value, Aggressive) with distinct recommendation logic",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Prediction engine with signal breakdown, confidence ratings, bet sizing (1k-10k), and 'Do Not Bet' safeguard",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Race Result logging page with winner/place/show entry and user follow-through tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Adaptive learning system that adjusts feature weights, calibrates probabilities, and uses recency weighting",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "History page with scrollable race log and JSON/CSV export functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Contender Statistics page showing per-contender performance profiles and consistency metrics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Settings page with data reset, model tuning controls, and strategy defaults",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Local storage system for persistent race history and model state",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Session summary display every 10-20 races with performance analytics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Create prediction engine backend that validates all 6 odds are filled, computes implied probabilities, retrieves historical stats for each contender, computes model signals (Market Odds, Historical Performance, Recent Form, Consistency/Variance), applies current feature weights, generates final predicted win probabilities, selects best recommendation based on strategy mode, and calculates bet size between 1,000-10,000.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Implement intelligent bet sizing that adjusts based on edge strength, model confidence, contender variance rating, and recent model performance. When model confidence is low, automatically recommend smaller bets even if edge appears large.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Implement adaptive learning system in backend that updates feature weights after each race save based on prediction performance. If predicted probability matches outcome, strengthen supporting signals; if prediction fails repeatedly, reduce confidence in those signals. Track model calibration by comparing predicted vs actual outcomes over many races and recalibrate when predictions are consistently overconfident or underconfident.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Implement contender-level consistency scoring system that tracks variance and unpredictability. High-variance contenders should trigger reduced confidence and smaller bet sizes even when other signals are favorable.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Implement recency weighting system where recent races matter more than older races in model calculations. This allows the model to adapt if game RNG behavior changes in current session.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Implement local persistent storage system that saves all race history, model state, feature weights, and contender statistics on-device. Data must persist when app is closed and reopened. Include ability to reset all data via Settings.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "GTA Betting Assistant",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,374 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-dashboard-page-that-displays-primary-stats-in-a-clean-card-layout-total-races-logged-total-bets-placed-total-profit-loss-overall-roi-overall-prediction-accuracy-current-session-profit-loss-and-model-calibration-score-stats-must-be-immediately-visible-and-readable-within-2-seconds",
+      "featureTitle": "Create a Dashboard page that displays primary stats in a clean card layout: Total Races Logged, Total Bets Placed, Total Profit/Loss, Overall ROI, Overall Prediction Accuracy, Current Session Profit/Loss, and Model Calibration Score. Stats must be immediately visible and readable within 2 seconds.",
+      "files": [
+        "frontend/src/components/StatCard.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-model-health-indicator-on-dashboard-that-computes-and-displays-confidence-level-high-medium-low-based-on-recent-prediction-accuracy-and-calibration-quality-over-the-last-10-20-races-when-confidence-drops-the-system-should-automatically-recommend-smaller-bet-sizes",
+      "featureTitle": "Implement Model Health Indicator on Dashboard that computes and displays confidence level (High/Medium/Low) based on recent prediction accuracy and calibration quality over the last 10-20 races. When confidence drops, the system should automatically recommend smaller bet sizes.",
+      "files": [
+        "frontend/src/components/ModelHealthIndicator.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-currently-selected-strategy-mode-on-dashboard-with-mode-name-safe-balanced-value-aggressive-and-a-short-description-of-what-the-mode-is-optimizing-for-e-g-optimizing-for-highest-win-consistency-or-optimizing-for-maximum-expected-profit",
+      "featureTitle": "Display currently selected strategy mode on Dashboard with mode name (Safe/Balanced/Value/Aggressive) and a short description of what the mode is optimizing for (e.g., 'Optimizing for highest win consistency' or 'Optimizing for maximum expected profit').",
+      "files": [
+        "frontend/src/components/StrategyModeDisplay.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-last-prediction-result-summary-to-dashboard-showing-recommended-contender-assigned-probability-outcome-won-placed-showed-failed-recommended-bet-size-and-profitability-result",
+      "featureTitle": "Add Last Prediction Result Summary to Dashboard showing: recommended contender, assigned probability, outcome (won/placed/showed/failed), recommended bet size, and profitability result.",
+      "files": [
+        "frontend/src/components/LastPredictionSummary.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-quick-action-buttons-on-dashboard-new-bet-primary-call-to-action-visually-prominent-log-race-result-history-reset-data-and-settings-new-bet-button-must-stand-out-the-most",
+      "featureTitle": "Create Quick Action Buttons on Dashboard: New Bet (primary call-to-action, visually prominent), Log Race Result, History, Reset Data, and Settings. New Bet button must stand out the most.",
+      "files": [
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-new-bet-page-with-exactly-6-contender-input-rows-labeled-1-through-6-each-row-must-have-a-numeric-input-box-accepting-values-1-30-numerator-with-static-1-text-displayed-immediately-to-the-right-forming-visual-odds-like-5-1-inputs-must-be-fast-and-simple-with-no-extra-menus-or-dropdowns",
+      "featureTitle": "Create New Bet page with exactly 6 contender input rows labeled #1 through #6. Each row must have a numeric input box accepting values 1-30 (numerator) with static '/1' text displayed immediately to the right, forming visual odds like '[ 5 ] /1'. Inputs must be fast and simple with no extra menus or dropdowns.",
+      "files": [
+        "frontend/src/components/ContenderOddsRow.tsx",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-real-time-implied-win-probability-calculation-and-display-for-each-contender-on-new-bet-page-as-the-user-types-each-odds-numerator-instantly-compute-and-show-implied-win-percentage-e-g-5-1-displays-implied-win-chance-16-67-updates-must-happen-in-real-time-while-typing",
+      "featureTitle": "Implement real-time implied win probability calculation and display for each contender on New Bet page. As the user types each odds numerator, instantly compute and show implied win percentage (e.g., '5/1' displays 'Implied Win Chance: 16.67%'). Updates must happen in real time while typing.",
+      "files": [
+        "frontend/src/components/ContenderOddsRow.tsx",
+        "frontend/src/lib/betting-calculations.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-live-odds-table-summary-panel-below-the-6-contender-rows-on-new-bet-page-displaying-total-implied-probabilities-across-all-contenders-overround-percentage-if-total-exceeds-100-and-warning-if-total-implied-probability-is-abnormally-high-or-low",
+      "featureTitle": "Add Live Odds Table Summary panel below the 6 contender rows on New Bet page displaying: total implied probabilities across all contenders, overround percentage (if total exceeds 100%), and warning if total implied probability is abnormally high or low.",
+      "files": [
+        "frontend/src/components/OddsSummaryPanel.tsx",
+        "frontend/src/lib/betting-calculations.ts",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-strategy-mode-selector-on-new-bet-page-with-4-modes-safe-mode-prioritizes-highest-win-likelihood-balanced-mode-balances-probability-and-value-value-mode-prioritizes-expected-value-and-underdog-opportunities-and-aggressive-mode-maximizes-payout-potential-selector-should-be-a-clear-dropdown-or-segmented-button-control",
+      "featureTitle": "Implement Strategy Mode Selector on New Bet page with 4 modes: Safe Mode (prioritizes highest win likelihood), Balanced Mode (balances probability and value), Value Mode (prioritizes expected value and underdog opportunities), and Aggressive Mode (maximizes payout potential). Selector should be a clear dropdown or segmented button control.",
+      "files": [
+        "frontend/src/components/StrategyModeSelector.tsx",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-prediction-results-on-new-bet-page-showing-recommended-contender-e-g-3-predicted-win-probability-e-g-28-4-implied-odds-probability-e-g-16-7-value-edge-e-g-11-7-confidence-level-low-medium-high-based-on-contender-consistency-and-model-calibration-and-recommended-bet-size-in-1k-increments-e-g-7-000",
+      "featureTitle": "Display prediction results on New Bet page showing: Recommended Contender (e.g., '#3'), Predicted Win Probability (e.g., '28.4%'), Implied Odds Probability (e.g., '16.7%'), Value Edge (e.g., '+11.7%'), Confidence Level (Low/Medium/High based on contender consistency and model calibration), and Recommended Bet Size in $1k increments (e.g., '$7,000').",
+      "files": [
+        "frontend/src/components/PredictionResults.tsx",
+        "frontend/src/hooks/usePrediction.ts",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-reasoning-panel-to-prediction-output-showing-breakdown-of-the-4-model-signals-with-their-scores-and-current-trust-weights-market-odds-signal-score-weight-historical-performance-signal-score-weight-recent-form-signal-score-weight-and-consistency-variance-signal-score-weight-display-format-example-market-odds-0-21-with-market-odds-weight-0-30",
+      "featureTitle": "Add 'Reasoning' panel to prediction output showing breakdown of the 4 model signals with their scores and current trust weights: Market Odds Signal (score + weight), Historical Performance Signal (score + weight), Recent Form Signal (score + weight), and Consistency/Variance Signal (score + weight). Display format example: 'Market Odds: +0.21' with 'Market Odds Weight: 0.30'.",
+      "files": [
+        "frontend/src/components/ReasoningPanel.tsx",
+        "frontend/src/hooks/usePrediction.ts",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-do-not-bet-safeguard-logic-that-automatically-recommends-skipping-a-race-when-no-contender-has-a-strong-enough-edge-over-implied-probability-display-message-recommendation-skip-this-race-with-explanation-no-contender-shows-a-strong-positive-expected-value",
+      "featureTitle": "Implement 'Do Not Bet' safeguard logic that automatically recommends skipping a race when no contender has a strong enough edge over implied probability. Display message: 'Recommendation: Skip This Race' with explanation 'No contender shows a strong positive expected value.'",
+      "files": [
+        "frontend/src/components/SkipRaceRecommendation.tsx",
+        "frontend/src/hooks/usePrediction.ts",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-race-result-logging-page-with-quick-input-controls-dropdowns-or-tap-buttons-not-typing-for-winner-1-6-second-place-1-6-and-third-place-1-6-store-race-data-including-odds-entered-timestamp-finishing-order-model-prediction-recommended-bet-size-and-optional-toggle-for-whether-user-followed-recommendation",
+      "featureTitle": "Create Race Result Logging page with quick input controls (dropdowns or tap buttons, not typing) for Winner (#1-#6), Second Place (#1-#6), and Third Place (#1-#6). Store race data including: odds entered, timestamp, finishing order, model prediction, recommended bet size, and optional toggle for whether user followed recommendation.",
+      "files": [
+        "frontend/src/components/FinishingPositionSelector.tsx",
+        "frontend/src/pages/LogRaceResult.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-history-page-displaying-scrollable-list-of-logged-races-each-entry-shows-timestamp-odds-for-all-6-contenders-top-3-finishers-model-recommended-contender-recommended-bet-size-correctness-indicator-and-profit-loss-result-include-optional-json-or-csv-export-functionality",
+      "featureTitle": "Create History page displaying scrollable list of logged races. Each entry shows: timestamp, odds for all 6 contenders, top 3 finishers, model recommended contender, recommended bet size, correctness indicator, and profit/loss result. Include optional JSON or CSV export functionality.",
+      "files": [
+        "frontend/src/components/RaceHistoryEntry.tsx",
+        "frontend/src/lib/export-utils.ts",
+        "frontend/src/pages/History.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-contender-statistics-page-showing-computed-stats-for-each-contender-1-6-win-place-show-rate-last-5-finishes-streak-status-average-implied-odds-optional-overperformance-vs-odds-metric-and-consistency-score-display-as-individual-contender-profiles",
+      "featureTitle": "Create Contender Statistics page showing computed stats for each contender #1-#6: win/place/show rate, last 5 finishes, streak status, average implied odds, optional overperformance vs odds metric, and consistency score. Display as individual contender profiles.",
+      "files": [
+        "frontend/src/components/ContenderProfile.tsx",
+        "frontend/src/lib/contender-calculations.ts",
+        "frontend/src/pages/ContenderStats.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-settings-page-with-controls-for-reset-all-data-change-recent-form-window-size-default-5-races-adjust-recency-weighting-strength-toggle-do-not-bet-mode-on-off-toggle-auto-bet-sizing-on-off-set-default-strategy-mode-and-enable-session-only-mode-vs-lifetime-mode",
+      "featureTitle": "Create Settings page with controls for: reset all data, change recent-form window size (default 5 races), adjust recency weighting strength, toggle 'Do Not Bet' mode on/off, toggle auto bet sizing on/off, set default strategy mode, and enable session-only mode vs lifetime mode.",
+      "files": [
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-contextual-warnings-and-guidance-messages-throughout-the-app-model-confidence-low-bet-size-reduced-high-variance-contender-risk-increased-no-value-detected-skipping-recommended-messages-should-appear-when-conditions-are-met",
+      "featureTitle": "Display contextual warnings and guidance messages throughout the app: 'Model confidence low: bet size reduced.', 'High variance contender: risk increased.', 'No value detected: skipping recommended.' Messages should appear when conditions are met.",
+      "files": [
+        "frontend/src/components/ContextualWarning.tsx",
+        "frontend/src/pages/Dashboard.tsx",
+        "frontend/src/pages/NewBet.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-session-summary-display-that-appears-after-every-10-or-20-races-showing-profit-loss-best-performing-contender-worst-performing-contender-most-accurate-strategy-mode-most-profitable-strategy-mode-and-current-model-trust-weights",
+      "featureTitle": "Implement session summary display that appears after every 10 or 20 races showing: profit/loss, best-performing contender, worst-performing contender, most accurate strategy mode, most profitable strategy mode, and current model trust weights.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SessionSummaryModal.tsx",
+        "frontend/src/hooks/useSessionTracking.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-the-app-with-a-clean-fast-minimalist-visual-aesthetic-optimized-for-professional-betting-analysis-use-a-dark-or-neutral-color-scheme-with-high-contrast-typography-for-instant-readability-avoid-blue-and-purple-unless-they-serve-a-functional-purpose-every-screen-must-be-glanceable-with-the-most-important-numbers-immediately-visible",
+      "featureTitle": "Design the app with a clean, fast, minimalist visual aesthetic optimized for professional betting analysis. Use a dark or neutral color scheme with high-contrast typography for instant readability. Avoid blue and purple unless they serve a functional purpose. Every screen must be glanceable with the most important numbers immediately visible.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
