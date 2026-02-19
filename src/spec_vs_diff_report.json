@@ -1,86 +1,15 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-18T23:41:47.240Z",
-  "summary": "The diff implements a comprehensive GTA Online Betting Assistant with frontend UI components, React hooks, backend Motoko actor, and core betting/prediction logic. The implementation covers dashboard stats, model health indicators, strategy modes, prediction engine, race logging, history tracking, contender statistics, and local persistence. Most requirements appear to be implemented, though some advanced adaptive learning and calibration details are not fully evident in the truncated diff.",
-  "missing_requirements": [
-    {
-      "id": "REQ-16",
-      "requirement": "Implement adaptive learning system in backend that updates feature weights after each race save based on prediction performance. Track model calibration by comparing predicted vs actual outcomes over many races and recalibrate when predictions are consistently overconfident or underconfident.",
-      "reason": "The backend/main.mo shows basic data storage and retrieval but does not contain visible logic for adaptive weight updates, calibration tracking, or recalibration based on prediction accuracy over time.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "requirement": "Implement contender-level consistency scoring system that tracks variance and unpredictability. High-variance contenders should trigger reduced confidence and smaller bet sizes even when other signals are favorable.",
-      "reason": "While ContenderProfile.tsx displays a consistencyScore, the backend logic for computing variance/unpredictability and dynamically adjusting confidence or bet sizing based on high variance is not visible in the diff.",
-      "evidence": [
-        "frontend/src/components/ContenderProfile.tsx",
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "requirement": "Implement recency weighting system where recent races matter more than older races in model calculations. This allows the model to adapt if game RNG behavior changes in current session.",
-      "reason": "The backend stores race history and settings include recencyWeighting, but no explicit implementation of recency-weighted calculation logic is shown in the diff.",
-      "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "requirement": "Implement session summary display that appears after every 10 or 20 races showing: profit/loss, best-performing contender, worst-performing contender, most accurate strategy mode, most profitable strategy mode, and current model trust weights.",
-      "reason": "SessionSummaryModal.tsx is present and displays some metrics (profitLoss, bestContender, worstContender, mostAccurateMode), but does not show 'most profitable strategy mode' or 'current model trust weights' as required.",
-      "evidence": [
-        "frontend/src/components/SessionSummaryModal.tsx"
-      ]
-    }
-  ],
+  "generatedAt": "2026-02-18T23:48:47.827Z",
+  "summary": "All requirements from REQ-26 are fully implemented. The ContenderOddsRow component now accepts empty string state, does not auto-fill with '1', conditionally displays implied probability only for valid odds, and the NewBet page initializes all 6 contender fields as empty strings. No hallucinated features detected.",
+  "missing_requirements": [],
   "hallucinated_features": [],
-  "confidence": 0.75,
+  "confidence": 0.95,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
     "frontend/src/components/ContenderOddsRow.tsx",
-    "frontend/src/components/ContenderProfile.tsx",
-    "frontend/src/components/ContextualWarning.tsx",
-    "frontend/src/components/FinishingPositionSelector.tsx",
-    "frontend/src/components/LastPredictionSummary.tsx",
-    "frontend/src/components/Layout.tsx",
-    "frontend/src/components/ModelHealthIndicator.tsx",
-    "frontend/src/components/OddsSummaryPanel.tsx",
-    "frontend/src/components/PredictionResults.tsx",
-    "frontend/src/components/RaceHistoryEntry.tsx",
-    "frontend/src/components/ReasoningPanel.tsx",
-    "frontend/src/components/SessionSummaryModal.tsx",
-    "frontend/src/components/SkipRaceRecommendation.tsx",
-    "frontend/src/components/StatCard.tsx",
-    "frontend/src/components/StrategyModeDisplay.tsx",
-    "frontend/src/components/StrategyModeSelector.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/usePrediction.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/hooks/useSessionTracking.ts",
-    "frontend/src/index.css",
-    "frontend/src/lib/betting-calculations.ts",
-    "frontend/src/lib/contender-calculations.ts",
-    "frontend/src/lib/export-utils.ts",
-    "frontend/src/lib/utils.ts",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/ContenderStats.tsx",
-    "frontend/src/pages/Dashboard.tsx",
-    "frontend/src/pages/History.tsx",
-    "frontend/src/pages/LogRaceResult.tsx",
     "frontend/src/pages/NewBet.tsx",
-    "frontend/src/pages/Settings.tsx",
-    "frontend/tailwind.config.js",
     "project_state.json"
   ]
 }

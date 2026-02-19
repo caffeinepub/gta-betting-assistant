@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "GTA Online horse betting assistant with adaptive machine learning prediction engine",
   "architectural_notes": [
     "Four-signal prediction model: Market Odds, Historical Performance, Recent Form (5 races), Consistency/Variance",
@@ -14,8 +14,10 @@
     "Model confidence derived from recent prediction accuracy (10-20 race window)",
     "ROI tracking distinguishes between recommended bets and user-followed bets"
   ],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Odds input fields auto-fill with '1' when emptied, preventing users from replacing values. Fields should allow empty state during editing."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-dashboard-page-that-displays-primary-stats-in-a-clean-card-layout-total-races-logged-total-bets-placed-total-profit-loss-overall-roi-overall-prediction-accuracy-current-session-profit-loss-and-model-calibration-score-stats-must-be-immediately-visible-and-readable-within-2-seconds",
@@ -166,6 +168,14 @@
       "title": "Design the app with a clean, fast, minimalist visual aesthetic optimized for professional betting analysis. Use a dark or neutral color scheme with high-contrast typography for instant readability. Avoid blue and purple unless they serve a functional purpose. Every screen must be glanceable with the most important numbers immediately visible.",
       "reqIds": [
         "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-modify-contenderoddsrow-component-to-allow-the-numerator-input-field-to-be-completely-empty-without-auto-filling-with-1-the-input-should-accept-an-empty-string-state-and-only-validate-compute-implied-probability-when-a-valid-number-1-30-is-entered",
+      "title": "Modify ContenderOddsRow component to allow the numerator input field to be completely empty without auto-filling with '1'. The input should accept an empty string state and only validate/compute implied probability when a valid number (1-30) is entered.",
+      "reqIds": [
+        "REQ-26"
       ],
       "version": 1
     }

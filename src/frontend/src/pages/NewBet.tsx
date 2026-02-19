@@ -12,13 +12,13 @@ import { usePrediction } from '@/hooks/usePrediction';
 import { Calculator } from 'lucide-react';
 
 export default function NewBet() {
-  const [odds, setOdds] = useState<number[]>([5, 5, 5, 5, 5, 5]);
+  const [odds, setOdds] = useState<(number | '')[]>(['', '', '', '', '', '']);
   const [strategyMode, setStrategyMode] = useState<string>('Balanced');
   const [showResults, setShowResults] = useState(false);
 
   const { prediction, isCalculating, calculate } = usePrediction();
 
-  const handleOddsChange = (index: number, value: number) => {
+  const handleOddsChange = (index: number, value: number | '') => {
     const newOdds = [...odds];
     newOdds[index] = value;
     setOdds(newOdds);
@@ -26,11 +26,14 @@ export default function NewBet() {
   };
 
   const handleCalculate = async () => {
-    await calculate(odds, strategyMode);
+    // Convert odds to numbers for calculation, filtering out empty values
+    const validOdds = odds.map(odd => typeof odd === 'number' ? odd : 0);
+    await calculate(validOdds, strategyMode);
     setShowResults(true);
   };
 
-  const allOddsFilled = odds.every((odd) => odd >= 1 && odd <= 30);
+  // Check if all odds are filled with valid numbers
+  const allOddsFilled = odds.every((odd) => typeof odd === 'number' && odd >= 1 && odd <= 30);
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
@@ -56,7 +59,7 @@ export default function NewBet() {
         </CardContent>
       </Card>
 
-      <OddsSummaryPanel odds={odds} />
+      <OddsSummaryPanel odds={odds.map(odd => typeof odd === 'number' ? odd : 0)} />
 
       <StrategyModeSelector value={strategyMode} onChange={setStrategyMode} />
 
